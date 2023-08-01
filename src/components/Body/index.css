@@ -1,12 +1,16 @@
 /* Content.css */
 .content {
     padding: 20px;
-    width: 65%;
+    width: 100%;
 }
 
-.content h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
+h1 {
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    padding: 5px;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .playlist-container {
