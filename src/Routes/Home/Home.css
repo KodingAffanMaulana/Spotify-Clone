@@ -1,13 +1,8 @@
 /* App.css */
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .main {
@@ -16,14 +11,13 @@ body {
 }
 
 .sidebar {
-  background-color: #282828;
+  background-color: #242424;
   color: #fff;
   width: 25%;
-  padding: 20px 0;
 }
 
 .content {
-  padding: 20px;
+  margin: 8px 8px 8px 0;
   flex: 1;
   width: 65%;
 }

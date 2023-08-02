@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
-import Body from '../Body/Body'
+import { Context } from '../../MyContext';
 
-const Form = ({ access_token }) => {
+const Form = () => {
     const [query, setQuery] = useState('');
-    const [tracks, set_tracks] = useState([]);
+    const { tracks, setTracks, access_token } = useContext(Context);
 
+    console.log(access_token);
     const handleChange = (event) => {
         setQuery(event.target.value);
     };
 
     const handleClick = () => {
         if (tracks) {
-            set_tracks([])
+            setTracks([])
         }
         try {
             let url = 'https://api.spotify.com/v1/search?q=' + query + '&type=track,artist';
@@ -22,7 +23,7 @@ const Form = ({ access_token }) => {
                 },
             })
                 .then(res => {
-                    set_tracks(res.data.tracks.items);
+                    setTracks(res.data.tracks.items);
                 })
         } catch (err) {
             console.error(err);
@@ -33,24 +34,24 @@ const Form = ({ access_token }) => {
 
     return (
         <>
-            <div className='flex'>
+            <div className='flex items-center'>
                 <input
                     onChange={handleChange}
                     value={query}
                     type="text"
-                    className="bg-white px-2 py-1 rounded-bl rounded-tl w-80 mb-3"
-                    placeholder="Silahkan masukkan artis ...."
+                    className="bg-[#282828] border-1 px-4 py-2 rounded-l-[500px] w-full"
+                    placeholder="Artis, Lagu, atau Podcast"
                 />
                 <button
                     onClick={handleClick}
-                    className="bg-[#b3b3b3] hover:bg-gray-600 px-2 py-2 mb-3 text-black rounded-br rounded-tr"
+                    className="bg-[#b3b3b3] rounded-r-[500px] hover:bg-gray-600 px-4 py-2 text-black"
                 >
                     <svg
                         role="img"
                         height="24px"
                         width="24px"
                         aria-hidden="true"
-                        className="text-black" // Use the CSS class for white icon
+                        className="text-black"
                         viewBox="0 0 24 24"
                         data-encore-id="icon"
                     >
@@ -58,7 +59,6 @@ const Form = ({ access_token }) => {
                     </svg>
                 </button>
             </div>
-            <Body tracks={tracks} />
         </>
     );
 };
