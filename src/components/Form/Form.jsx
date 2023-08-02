@@ -39,12 +39,12 @@ const Form = () => {
                     onChange={handleChange}
                     value={query}
                     type="text"
-                    className="bg-[#282828] border-1 px-4 py-2 rounded-l-[500px] w-full"
+                    className="bg-[#282828] border-1 px-4 py-1 rounded-l-[500px] w-full"
                     placeholder="Artis, Lagu, atau Podcast"
                 />
                 <button
                     onClick={handleClick}
-                    className="bg-[#b3b3b3] rounded-r-[500px] hover:bg-gray-600 px-4 py-2 text-black"
+                    className="bg-[#b3b3b3] rounded-r-[500px] hover:bg-gray-600 px-4 py-1 text-black"
                 >
                     <svg
                         role="img"

@@ -18,14 +18,12 @@ const Navbar = () => {
                 },
             })
                 .then(res => {
-                    setUsers(res.data.display_name);
-                    console.log(res)
-                    console.log(res.data)
+                    setUsers(res.data);
                 })
         } catch (err) {
             console.error(err);
         }
-    })
+    }, [access_token])
 
     const imageUrl = 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png'
     return (
@@ -40,8 +38,9 @@ const Navbar = () => {
             </div>
             <div className="avatar flex">
                 <button className='flex gap-2 items-center'>
-                    <CgProfile fontSize="30px" />
-                    <span className='items-center'>{users}</span>
+                    {/* <img src={users.images[0].url} alt='foto'/> */}
+                    <CgProfile fontSize='30px' alt={users.display_name} />
+                    <span className='items-center'>{users.display_name}</span>
                 </button>
             </div>
         </div>
