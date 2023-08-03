@@ -6,7 +6,6 @@ const Form = () => {
     const [query, setQuery] = useState('');
     const { tracks, setTracks, access_token } = useContext(Context);
 
-    console.log(access_token);
     const handleChange = (event) => {
         setQuery(event.target.value);
     };
@@ -24,6 +23,7 @@ const Form = () => {
             })
                 .then(res => {
                     setTracks(res.data.tracks.items);
+                    console.log(res.data.tracks.items);
                 })
         } catch (err) {
             console.error(err);

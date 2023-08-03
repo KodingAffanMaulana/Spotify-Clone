@@ -1,7 +1,7 @@
 const LoginButton = () => {
-    let client_id = 'c91f77a552f446fab17c4d71b93d717c';
+    let client_id = '84a9458f8f98413b899e7ea109593848';
     let scope = 'playlist-modify-private';
-    let redirect_uri = 'http://localhost:3000';
+    let redirect_uri = 'http://localhost:3000/';
 
     let spotify_url = 'https://accounts.spotify.com/authorize';
     spotify_url += '?response_type=token';

@@ -6,7 +6,8 @@ import axios from 'axios';
 import { Context } from '../../MyContext';
 
 const Navbar = () => {
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([]);
+
     const { access_token } = useContext(Context);
 
     useEffect(() => {
@@ -23,7 +24,8 @@ const Navbar = () => {
         } catch (err) {
             console.error(err);
         }
-    }, [access_token])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const imageUrl = 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png'
     return (
@@ -31,9 +33,9 @@ const Navbar = () => {
             <div className='flex'>
                 <img className="logo" src={imageUrl} alt="Spotify Logo" />
                 <ul className="gap-[40px] items-center">
-                    <Link to='/'>My Playlist</Link>
-                    <Link to='/recomendation'>Recomendation</Link>
-                    <Link to='/'>Podcast</Link>
+                    <Link to='/home'>My Playlist</Link>
+                    <Link to="/recomendation">Recomendation</Link>
+                    {/* <button to='/'>Podcast</button> */}
                 </ul>
             </div>
             <div className="avatar flex">
