@@ -7,7 +7,6 @@ import { Context } from '../../MyContext';
 
 const Navbar = () => {
     const [users, setUsers] = useState([]);
-
     const { access_token } = useContext(Context);
 
     useEffect(() => {
@@ -24,7 +23,7 @@ const Navbar = () => {
         } catch (err) {
             console.error(err);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const imageUrl = 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png'
@@ -35,13 +34,14 @@ const Navbar = () => {
                 <ul className="gap-[40px] items-center">
                     <Link to='/home'>My Playlist</Link>
                     <Link to="/recomendation">Recomendation</Link>
+                    <Link to="/create">Create</Link>
                     {/* <button to='/'>Podcast</button> */}
                 </ul>
             </div>
             <div className="avatar flex">
                 <button className='flex gap-2 items-center'>
-                    {/* <img src={users.images[0].url} alt='foto'/> */}
-                    <CgProfile fontSize='30px' alt={users.display_name} />
+                    {(users.images[0].url === undefined) && (<CgProfile fontSize='30px' alt={users.display_name} />)}
+                    {(users.images[0].url) && (<img src={users.images[0].url} alt='foto' />)}
                     <span className='items-center'>{users.display_name}</span>
                 </button>
             </div>
