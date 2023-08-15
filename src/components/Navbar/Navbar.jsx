@@ -40,8 +40,9 @@ const Navbar = () => {
             </div>
             <div className="avatar flex">
                 <button className='flex gap-2 items-center'>
-                    {(users.images[0].url === undefined) && (<CgProfile fontSize='30px' alt={users.display_name} />)}
-                    {(users.images[0].url) && (<img src={users.images[0].url} alt='foto' />)}
+                    {/* {(users.images[0].url === undefined) && (<CgProfile fontSize='30px' alt={users.display_name} />)}
+                    {(users.images[0].url) && (<img src={users.images[0].url} alt='foto' />)} */}
+                    <CgProfile fontSize='30px' alt={users.display_name} />
                     <span className='items-center'>{users.display_name}</span>
                 </button>
             </div>
