@@ -1,2 +1,2 @@
 ## Screenshoots
-![image](image.png)
+![image](./src/assets/image.png)
